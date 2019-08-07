@@ -1,14 +1,21 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
+<ion-content padding>
+  <h3>Bem vindo ao Dog 10</h3>
+  <div *ngFor="let hot of hotdogList">
+    <ion-card>
+      <ion-card-content>
+        <ion-card-title class="title">
+          {{hot.title}}
+        </ion-card-title>
+        <ion-img src={{hot.image}} ></ion-img>
+        <ion-card-subtitle class="description">
+          {{hot.description}}
+        </ion-card-subtitle>
+        <h1 class="price">{{hot.price}}</h1>
+        <ion-button [routerLink]='["/finalizar-pedido"]' expand="block">
+          <ion-icon name="card"></ion-icon>
+          <p>Comprar</p>
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
   </div>
 </ion-content>
