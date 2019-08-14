@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -7,7 +8,11 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  detalhes(title, price, image){
+    this.router.navigate(['/finalizar-pedido', title, price, image]);
+  }
+
+  constructor(private router:Router) {}
 
   hotdogList:Array<Object> = [
     {

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController, AlertController } from '@ionic/angular';
-import Endereco from '../domain/Endereco';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-finalizar-pedido',
@@ -9,9 +9,40 @@ import Endereco from '../domain/Endereco';
 })
 export class FinalizarPedidoPage implements OnInit {
 
-  constructor(private Alert:AlertController,private nav:NavController) { }
+  title;
+  price;
+  image;
+
+  constructor(private route:ActivatedRoute, private Alert:AlertController,private nav:NavController, private router:Router) { }
 
   ngOnInit() {
+  }
+
+  mostrarHotdog() {
+    const title = this.route.snapshot.params.id;
+    const price = this.route.snapshot.params.price;
+    const image = this.route.snapshot.params.image;
+    this.title = title;
+    this.price = price;
+    this. image = image;
+  }
+
+  ionViewDidEnter() { 
+    this.mostrarHotdog();
+  }
+
+  voltar() {
+    this.Alert.create({
+      header: "Pedido finalizado com sucesso, pagamento será realizado na entreaga",
+      buttons: [{
+        text: "OK",
+        handler: () => {
+          this.nav.back();
+        }
+      }]
+    }).then(Alert => {
+      Alert.present()
+    })
   }
 
   buscar(cep) {
@@ -47,17 +78,6 @@ export class FinalizarPedidoPage implements OnInit {
                       text:'Cancelar',
                     },{
                       text:'Salvar',
-                      handler: (dados)=>{
-                        let tempend = new Endereco()
-                        tempend.bairro= endereco.bairro;
-                        tempend.cidade=endereco.localidade;
-                        tempend.estado=endereco.uf;
-                        tempend.numero= dados.numero;
-                        tempend.rua=endereco.logradouro;
-                        tempend.cep = endereco.cep;
-                        tempend.salvar()
-                        this.nav.back()
-                      }
                     }]
                   }).then(alert=>{
                     alert.present();

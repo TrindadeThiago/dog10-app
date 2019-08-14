@@ -11,7 +11,7 @@
           {{hot.description}}
         </ion-card-subtitle>
         <h1 class="price">{{hot.price}}</h1>
-        <ion-button [routerLink]='["/finalizar-pedido"]' expand="block">
+        <ion-button (click)="detalhes(hot.title, hot.price, hot.image)" expand="block">
           <ion-icon name="card"></ion-icon>
           <p>Comprar</p>
         </ion-button>

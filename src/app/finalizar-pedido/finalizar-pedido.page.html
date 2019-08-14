@@ -8,13 +8,23 @@
 </ion-header>
 
 <ion-content>
+    <ion-card>
+      <ion-card-content>
+        <ion-card-title class="title">
+          {{title}}
+        </ion-card-title>
+        <ion-img src={{image}} ></ion-img>
+        <h1 class="price">{{price}}</h1>
+      </ion-card-content>
+    </ion-card>
   <div class="ion-padding">
     <ion-item>
       <ion-label position="floating">Qual o CEP:</ion-label>
       <ion-input #cep></ion-input>
+      <ion-button color="success" (click)="buscar(cep)">Buscar</ion-button>
     </ion-item>
     <div class="ion-padding">
-      <ion-button color="success" expand="block" (click)="buscar(cep)">Buscar</ion-button>
+        <ion-button color="primary" (click)="voltar()" expand="block">Finalizar pedido</ion-button>
     </div>
   </div>
 </ion-content>
