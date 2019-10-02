@@ -1,14 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      <h3>Palestra Dog</h3>
+    </ion-title>
+    <ion-buttons slot="primary">
+      <ion-button [routerLink]="['/add-dog']">
+        <ion-icon name="add-circle"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
 <ion-content padding>
-  <h3>Bem vindo ao Dog 10</h3>
-  <div *ngFor="let hot of hotdogList">
+  <div *ngFor="let hot of hotdogs">
     <ion-card>
       <ion-card-content>
         <ion-card-title class="title">
-          {{hot.title}}
+          {{hot.name}}
         </ion-card-title>
         <ion-img src={{hot.image}} ></ion-img>
         <ion-card-subtitle class="description">
-          {{hot.description}}
+          {{hot.descricao}}
         </ion-card-subtitle>
         <h1 class="price">{{hot.price}}</h1>
         <ion-button (click)="detalhes(hot.title, hot.price, hot.image)" expand="block">

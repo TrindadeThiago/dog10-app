@@ -3,7 +3,14 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  apiKey: "AIzaSyChc6ibK9tYqfluxEWD5GJU2AyslPLpu4U",
+  authDomain: "palestra-dog.firebaseapp.com",
+  databaseURL: "https://palestra-dog.firebaseio.com",
+  projectId: "palestra-dog",
+  storageBucket: "palestra-dog.appspot.com",
+  messagingSenderId: "849758808178",
+  appId: "1:849758808178:web:d6bc91edb1730e46aebaeb"
 };
 
 /*
